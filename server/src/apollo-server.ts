@@ -8,7 +8,7 @@ import { loadSchemaSync } from '@graphql-tools/load';
 import { addResolversToSchema } from '@graphql-tools/schema';
 import { GRAPHQL_SCHEMA_PATH } from './constants';
 import resolvers from './resolvers';
-import { createResolvers, TwitterResolverContext } from './resolvers';
+import { TwitterResolverContext } from './resolvers';
 
 const SCHEMA = loadSchemaSync(GRAPHQL_SCHEMA_PATH, {
   loaders: [new GraphQLFileLoader()],
