@@ -1,8 +1,12 @@
 import { QueryResolvers } from '../resolvers-types.generated';
 import { TwitterResolverContext } from '../resolvers';
 import { tweetTransform } from '../transforms';
+import { trendTransform } from '../transforms';
 
 const queryTwitterResolvers: QueryResolvers<TwitterResolverContext> = {
+  trends: (_, __, { db }) => {
+    return db.getAllTrends().map(trendTransform);
+  },
   currentUser: (_, __, { db }) => {
     const [firstUser] = db.getAllUsers();
     if (!firstUser)
